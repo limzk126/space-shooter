@@ -139,10 +139,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "C compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "UNINITIALIZED",
 			"value" : "/usr/lib/llvm/14/bin/clang"
 		},
 		{

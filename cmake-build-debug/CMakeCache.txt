@@ -24,8 +24,8 @@ CMAKE_AR:FILEPATH=/usr/lib/llvm/14/bin/llvm-ar
 // MinSizeRel ...
 CMAKE_BUILD_TYPE:STRING=Debug
 
-//C compiler
-CMAKE_C_COMPILER:STRING=/usr/lib/llvm/14/bin/clang
+//No help, variable specified on the command line.
+CMAKE_C_COMPILER:UNINITIALIZED=/usr/lib/llvm/14/bin/clang
 
 //LLVM archiver
 CMAKE_C_COMPILER_AR:FILEPATH=/usr/lib/llvm/14/bin/llvm-ar
