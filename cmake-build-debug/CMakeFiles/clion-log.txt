@@ -1,0 +1,10 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/opt/clion-2021.3.2/bin/ninja/linux/ninja -DCMAKE_C_COMPILER=/usr/lib/llvm/14/bin/clang -G Ninja /home/dylan/CLionProjects/space-shooter
+-- The C compiler identification is Clang 14.0.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/lib/llvm/14/bin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dylan/CLionProjects/space-shooter/cmake-build-debug

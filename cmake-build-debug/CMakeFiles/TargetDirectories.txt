@@ -1,0 +1,3 @@
+/home/dylan/CLionProjects/space-shooter/cmake-build-debug/CMakeFiles/space_shooter.dir
+/home/dylan/CLionProjects/space-shooter/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/dylan/CLionProjects/space-shooter/cmake-build-debug/CMakeFiles/rebuild_cache.dir
