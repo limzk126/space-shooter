@@ -16,5 +16,6 @@ extern void blit(SDL_Texture *, int, int);
 
 App app;
 Entity player;
+Entity bullet;
 
 #endif //SPACE_SHOOTER_SPACESHOOTER_H
