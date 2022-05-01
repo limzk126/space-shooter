@@ -10,6 +10,7 @@ _OBJS += draw.o
 _OBJS += init.o input.o
 _OBJS += spaceshooter.o
 _OBJS += stage.o
+_OBJS += util.o
 
 OBJS = $(patsubst %,$(OUT)/%,$(_OBJS))
 
