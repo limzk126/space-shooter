@@ -3,76 +3,73 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "EndlessLoop"
 
+static void capFrameRate(long *, float *);
+static long total = 0;
+static long frames = 0;
+
+/**
+ * wait has a value of 16 or 17 depending on the value of remainder (0.667, 1.334 or 1.001).
+ * wait has an average value of 16.667 with time.
+ * One second has 1000 milliseconds and 60 frames, hence one frame is 16.67 milliseconds.
+ * SDL_Delay is used to pad a frame if it takes too little time.
+ *
+ * @param then
+ * @param remainder
+ */
+static void capFrameRate(long *then , float *remainder) {
+    long wait, frameTime;
+
+    wait = 16 + *remainder;
+    total += wait;
+    frames++;
+    printf("total: %ld frames: %ld\n", total, frames);
+    *remainder -= (int)*remainder;
+
+    frameTime = SDL_GetTicks() - *then;
+
+    wait -= frameTime;
+
+    if (wait < 1)
+    {
+        wait = 1;
+    }
+
+    SDL_Delay(wait);
+
+    *remainder += 0.667;
+
+    *then = SDL_GetTicks();
+}
+
+
 int main() {
+    long then;
+    float remainder;
+
     memset(&app, 0, sizeof(App));
-    memset(&player, 0, sizeof(Entity));
 
     initSDL();
 
-    player.x = 100;
-    player.y = 100;
-    player.texture = loadTexture("gfx/player.png");
-
-    bullet.texture = loadTexture("gfx/playerBullet.png");
-
     atexit(cleanup);
+
+    initStage();
+
+    then = SDL_GetTicks();
+
+    remainder = 0;
 
     while (1) {
         prepareScene();
 
         doInput();
 
-        if (app.up)
-        {
-            player.y -= 4;
-        }
+        app.delegate.logic();
 
-        if (app.down)
-        {
-            player.y += 4;
-        }
-
-        if (app.left)
-        {
-            player.x -= 4;
-        }
-
-        if (app.right)
-        {
-            player.x += 4;
-        }
-
-        if (app.fire && bullet.health == 0)
-        {
-            int bulletW, bulletH;
-            int playerW, playerH;
-            SDL_QueryTexture(player.texture, NULL, NULL, &playerW, &playerH);
-            SDL_QueryTexture(bullet.texture, NULL, NULL, &bulletW, &bulletH);
-            bullet.x = player.x + playerW / 2 - bulletW / 2;
-            bullet.y = player.y + playerH / 2 - bulletH / 2;
-            bullet.dx = 16;
-            bullet.dy = 0;
-            bullet.health = 1;
-        }
-
-        bullet.x += bullet.dx;
-        bullet.y += bullet.dy;
-
-        if (bullet.x > SCREEN_WIDTH)
-        {
-            bullet.health = 0;
-        }
-
-        blit(player.texture, player.x, player.y);
-
-        if (bullet.health > 0)
-        {
-            blit(bullet.texture, bullet.x, bullet.y);
-        }
+        app.delegate.draw();
 
         presentScene();
 
-        SDL_Delay(16);
+        capFrameRate(&then, &remainder);
     }
 
     return 0;

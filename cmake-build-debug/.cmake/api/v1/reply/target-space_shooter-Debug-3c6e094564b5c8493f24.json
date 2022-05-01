@@ -52,7 +52,8 @@
 				0,
 				2,
 				5,
-				7
+				7,
+				10
 			]
 		}
 	],
@@ -88,7 +89,8 @@
 				0,
 				2,
 				5,
-				7
+				7,
+				10
 			]
 		},
 		{
@@ -100,7 +102,8 @@
 				4,
 				6,
 				8,
-				9
+				9,
+				11
 			]
 		}
 	],
@@ -109,55 +112,66 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "spaceshooter.c",
+			"path" : "src/spaceshooter.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "structs.h",
+			"path" : "src/structs.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "init.c",
+			"path" : "src/init.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "common.h",
+			"path" : "src/common.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "init.h",
+			"path" : "src/init.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "input.c",
+			"path" : "src/input.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "input.h",
+			"path" : "src/input.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "draw.c",
+			"path" : "src/draw.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "draw.h",
+			"path" : "src/draw.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "spaceshooter.h",
+			"path" : "src/spaceshooter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/stage.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/stage.h",
 			"sourceGroupIndex" : 1
 		}
 	],

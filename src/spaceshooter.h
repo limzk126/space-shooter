@@ -6,6 +6,8 @@
 #define SPACE_SHOOTER_SPACESHOOTER_H
 
 #include "common.h"
+
+extern void initStage(void);
 extern void cleanup(void);
 extern void doInput(void);
 extern void initSDL(void);
@@ -15,7 +17,6 @@ extern SDL_Texture *loadTexture(char *);
 extern void blit(SDL_Texture *, int, int);
 
 App app;
-Entity player;
-Entity bullet;
+Stage stage;
 
 #endif //SPACE_SHOOTER_SPACESHOOTER_H

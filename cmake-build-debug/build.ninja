@@ -49,29 +49,35 @@ cmake_ninja_workdir = /home/dylan/CLionProjects/space-shooter/cmake-build-debug/
 
 build cmake_object_order_depends_target_space_shooter: phony || CMakeFiles/space_shooter.dir
 
-build CMakeFiles/space_shooter.dir/spaceshooter.c.o: C_COMPILER__space_shooter_Debug /home/dylan/CLionProjects/space-shooter/spaceshooter.c || cmake_object_order_depends_target_space_shooter
-  DEP_FILE = CMakeFiles/space_shooter.dir/spaceshooter.c.o.d
+build CMakeFiles/space_shooter.dir/src/spaceshooter.c.o: C_COMPILER__space_shooter_Debug /home/dylan/CLionProjects/space-shooter/src/spaceshooter.c || cmake_object_order_depends_target_space_shooter
+  DEP_FILE = CMakeFiles/space_shooter.dir/src/spaceshooter.c.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/space_shooter.dir
-  OBJECT_FILE_DIR = CMakeFiles/space_shooter.dir
+  OBJECT_FILE_DIR = CMakeFiles/space_shooter.dir/src
 
-build CMakeFiles/space_shooter.dir/init.c.o: C_COMPILER__space_shooter_Debug /home/dylan/CLionProjects/space-shooter/init.c || cmake_object_order_depends_target_space_shooter
-  DEP_FILE = CMakeFiles/space_shooter.dir/init.c.o.d
+build CMakeFiles/space_shooter.dir/src/init.c.o: C_COMPILER__space_shooter_Debug /home/dylan/CLionProjects/space-shooter/src/init.c || cmake_object_order_depends_target_space_shooter
+  DEP_FILE = CMakeFiles/space_shooter.dir/src/init.c.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/space_shooter.dir
-  OBJECT_FILE_DIR = CMakeFiles/space_shooter.dir
+  OBJECT_FILE_DIR = CMakeFiles/space_shooter.dir/src
 
-build CMakeFiles/space_shooter.dir/input.c.o: C_COMPILER__space_shooter_Debug /home/dylan/CLionProjects/space-shooter/input.c || cmake_object_order_depends_target_space_shooter
-  DEP_FILE = CMakeFiles/space_shooter.dir/input.c.o.d
+build CMakeFiles/space_shooter.dir/src/input.c.o: C_COMPILER__space_shooter_Debug /home/dylan/CLionProjects/space-shooter/src/input.c || cmake_object_order_depends_target_space_shooter
+  DEP_FILE = CMakeFiles/space_shooter.dir/src/input.c.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/space_shooter.dir
-  OBJECT_FILE_DIR = CMakeFiles/space_shooter.dir
+  OBJECT_FILE_DIR = CMakeFiles/space_shooter.dir/src
 
-build CMakeFiles/space_shooter.dir/draw.c.o: C_COMPILER__space_shooter_Debug /home/dylan/CLionProjects/space-shooter/draw.c || cmake_object_order_depends_target_space_shooter
-  DEP_FILE = CMakeFiles/space_shooter.dir/draw.c.o.d
+build CMakeFiles/space_shooter.dir/src/draw.c.o: C_COMPILER__space_shooter_Debug /home/dylan/CLionProjects/space-shooter/src/draw.c || cmake_object_order_depends_target_space_shooter
+  DEP_FILE = CMakeFiles/space_shooter.dir/src/draw.c.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/space_shooter.dir
-  OBJECT_FILE_DIR = CMakeFiles/space_shooter.dir
+  OBJECT_FILE_DIR = CMakeFiles/space_shooter.dir/src
+
+build CMakeFiles/space_shooter.dir/src/stage.c.o: C_COMPILER__space_shooter_Debug /home/dylan/CLionProjects/space-shooter/src/stage.c || cmake_object_order_depends_target_space_shooter
+  DEP_FILE = CMakeFiles/space_shooter.dir/src/stage.c.o.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/space_shooter.dir
+  OBJECT_FILE_DIR = CMakeFiles/space_shooter.dir/src
 
 
 # =============================================================================
@@ -81,7 +87,7 @@ build CMakeFiles/space_shooter.dir/draw.c.o: C_COMPILER__space_shooter_Debug /ho
 #############################################
 # Link the executable space_shooter
 
-build space_shooter: C_EXECUTABLE_LINKER__space_shooter_Debug CMakeFiles/space_shooter.dir/spaceshooter.c.o CMakeFiles/space_shooter.dir/init.c.o CMakeFiles/space_shooter.dir/input.c.o CMakeFiles/space_shooter.dir/draw.c.o
+build space_shooter: C_EXECUTABLE_LINKER__space_shooter_Debug CMakeFiles/space_shooter.dir/src/spaceshooter.c.o CMakeFiles/space_shooter.dir/src/init.c.o CMakeFiles/space_shooter.dir/src/input.c.o CMakeFiles/space_shooter.dir/src/draw.c.o CMakeFiles/space_shooter.dir/src/stage.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/space_shooter.dir
   POST_BUILD = :
