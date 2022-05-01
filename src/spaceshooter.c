@@ -9,12 +9,12 @@ static long frames = 0;
 
 /**
  * wait has a value of 16 or 17 depending on the value of remainder (0.667, 1.334 or 1.001).
- * wait has an average value of 16.667 with time.
+ * wait has an average value of 16.667 as time goes by.
  * One second has 1000 milliseconds and 60 frames, hence one frame is 16.67 milliseconds.
  * SDL_Delay is used to pad a frame if it takes too little time.
  *
- * @param then
- * @param remainder
+ * @param then The starting tick value.
+ * @param remainder The starting remainder value.
  */
 static void capFrameRate(long *then , float *remainder) {
     long wait, frameTime;
