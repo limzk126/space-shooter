@@ -17,6 +17,26 @@ int main() {
 
         doInput();
 
+        if (app.up)
+        {
+            player.y -= 4;
+        }
+
+        if (app.down)
+        {
+            player.y += 4;
+        }
+
+        if (app.left)
+        {
+            player.x -= 4;
+        }
+
+        if (app.right)
+        {
+            player.x += 4;
+        }
+
         blit(player.texture, player.x, player.y);
 
         presentScene();

@@ -6,5 +6,6 @@
 #define SPACE_SHOOTER_INPUT_H
 
 #include "common.h"
+extern App app;
 
 #endif //SPACE_SHOOTER_INPUT_H
