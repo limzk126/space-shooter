@@ -6,6 +6,8 @@
 #define SPACE_SHOOTER_DRAW_H
 
 #include "common.h"
-App app;
+#include <SDL2/SDL_image.h>
+
+extern App app;
 
 #endif //SPACE_SHOOTER_DRAW_H

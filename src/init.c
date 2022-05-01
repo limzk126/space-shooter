@@ -30,6 +30,9 @@ void initSDL(void) {
         printf("Failed to create renderer: %s\n", SDL_GetError());
         exit(1);
     }
+
+    // Configure SDL2_image to load png and jpg images.
+    IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
 }
 
 void cleanup(void)

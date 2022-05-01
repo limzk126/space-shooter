@@ -11,7 +11,10 @@ extern void doInput(void);
 extern void initSDL(void);
 extern void prepareScene(void);
 extern void presentScene(void);
+extern SDL_Texture *loadTexture(char *);
+extern void blit(SDL_Texture *, int, int);
 
-extern App app;
+App app;
+Entity player;
 
 #endif //SPACE_SHOOTER_SPACESHOOTER_H
