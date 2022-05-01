@@ -20,15 +20,16 @@ static void capFrameRate(long *then , float *remainder) {
     long wait, frameTime;
 
     wait = 16 + *remainder;
+
     total += wait;
     frames++;
-    printf("total: %ld frames: %ld\n", total, frames);
+//    printf("total: %ld frames: %ld\n", total, frames);
     *remainder -= (int)*remainder;
 
     frameTime = SDL_GetTicks() - *then;
 
     wait -= frameTime;
-
+//    printf("%ld\n", wait);
     if (wait < 1)
     {
         wait = 1;

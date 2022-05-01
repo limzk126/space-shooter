@@ -10,10 +10,16 @@ static void fireBullet(void);
 static void doBullets(void);
 static void logic(void);
 static void draw(void);
-static void drawPlayer(void);
 static void drawBullets(void);
+static void doFighters(void);
+static void spawnEnemies(void);
+static void drawFighters(void);
 
 static SDL_Texture *bulletTexture = NULL;
+static SDL_Texture *enemyTexture = NULL;
+
+static int enemySpawnTimer = 0;
+
 static struct Entity *player;
 
 void initStage(void) {
@@ -27,6 +33,7 @@ void initStage(void) {
     initPlayer();
 
     bulletTexture = loadTexture("gfx/playerBullet.png");
+    enemyTexture = loadTexture("gfx/enemy.png");
 }
 
 static void initPlayer() {
@@ -45,6 +52,10 @@ static void logic(void) {
     doPlayer();
 
     doBullets();
+
+    doFighters();
+
+    spawnEnemies();
 }
 
 static void doPlayer() {
@@ -119,21 +130,41 @@ static void doBullets(void) {
             }
 
             prev->next = b->next;
-
+            free(b);
+            b = prev;
         }
 
         prev = b;
     }
 }
 
-static void draw(void) {
-    drawPlayer();
+static void doFighters(void) {
+    struct Entity *e, *prev;
 
-    drawBullets();
+    prev = &stage.fighterHead;
+
+    for (e = &stage.fighterHead; e != NULL; e = e->next) {
+        e->x += e->dx;
+        e->y += e->dy;
+
+        if (e != player && e->x < -e->w) {
+            if (e == stage.fighterTail) {
+                stage.fighterTail = prev;
+            }
+
+            prev->next = e->next;
+            free(e);
+            e = prev;
+        }
+
+        prev = e;
+    }
 }
 
-static void drawPlayer(void) {
-    blit(player->texture, player->x, player->y);
+static void draw(void) {
+    drawFighters();
+
+    drawBullets();
 }
 
 static void drawBullets(void) {
@@ -141,5 +172,33 @@ static void drawBullets(void) {
 
     for (b = stage.bulletHead.next; b != NULL; b = b->next) {
         blit(b->texture, b->x, b->y);
+    }
+}
+
+static void spawnEnemies(void) {
+    struct Entity *enemy;
+
+    if (--enemySpawnTimer <= 0) {
+        enemy = malloc(sizeof(struct Entity));
+        memset(enemy, 0, sizeof(struct Entity));
+        stage.fighterTail->next = enemy;
+        stage.fighterTail = enemy;
+
+        enemy->x = SCREEN_WIDTH;
+        enemy->y = rand() % SCREEN_HEIGHT;
+        enemy->texture = enemyTexture;
+        SDL_QueryTexture(enemy->texture, NULL, NULL, &enemy->w, &enemy->h);
+
+        enemy->dx = -(2 + (rand() % 4));
+
+        enemySpawnTimer = 30  + (rand() % 60);
+    }
+}
+
+static void drawFighters(void) {
+    struct Entity *e;
+
+    for (e = stage.fighterHead.next; e != NULL; e = e->next) {
+        blit(e->texture, e->x, e->y);
     }
 }
